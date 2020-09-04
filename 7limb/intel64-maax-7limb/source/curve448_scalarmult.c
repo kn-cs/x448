@@ -86,3 +86,25 @@ int curve448_scalarmult_base(uchar8 *q, const uchar8 *n, const uchar8 *p) {
 
 	return 0;
 }
+
+int curve448_scalarmult_base_precompute(uchar8 *q, const uchar8 *n, const uchar8 *p) {
+
+	gfe_p4482241 r[2];
+
+	uchar8 i,s[CRYPTO_BYTES];
+
+	for (i=0;i<CRYPTO_BYTES;++i) s[i] = n[i];
+        s[CRYPTO_BYTES-1] = s[CRYPTO_BYTES-1] | 0x80;
+	s[0] = s[0] & 0xFC;
+
+	gfp4482241pack(r,p);
+
+	curve448_mladder_base_precompute(r,r,s);
+
+	gfp4482241invx(r+1,r+1);
+	gfp4482241mulx(r,r,r+1);
+	gfp4482241makeunique(r);
+	gfp4482241unpack(q,r);
+
+	return 0;
+}
