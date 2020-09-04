@@ -66,13 +66,21 @@ int main() {
 	for(i=0;i<CRYPTO_BYTES;++i) fprintf(FILE,"%4d",p[i]); fprintf(FILE,"\n\n");
 	for(i=0;i<CRYPTO_BYTES;++i) fprintf(FILE,"%4d",q[i]); fprintf(FILE,"\n\n");
 
+	curve448_scalarmult_base_precompute(q,n,p);
+
+	for(i=0;i<CRYPTO_BYTES;++i) fprintf(FILE,"%4d",p[i]); fprintf(FILE,"\n\n");
+	for(i=0;i<CRYPTO_BYTES;++i) fprintf(FILE,"%4d",q[i]); fprintf(FILE,"\n\n");
+
 	fprintf(FILE,"Computing CPU-cycles. It will take some time. Please wait!\n\n");
 
 	MEASURE_TIME({curve448_scalarmult_base(q,n,p);change_input(p,q,p);});
 	fprintf(FILE,"CPU-cycles for key generation of Curve448: %6.0lf\n\n", ceil(((get_median())/(double)(N))));
 
+	MEASURE_TIME({curve448_scalarmult_base_precompute(q,n,p);change_input(p,q,p);});
+	fprintf(FILE,"CPU-cycles for key generation of Curve448 using precomputation: %6.0lf\n\n", ceil(((get_median())/(double)(N))));
+
 	MEASURE_TIME({curve448_scalarmult(q,n,p);change_input(p,q,p);});
 	fprintf(FILE,"CPU-cycles for shared secret computation of Curve448: %6.0lf\n\n", ceil(((get_median())/(double)(N))));
-	
+
 	return 0;
 }
