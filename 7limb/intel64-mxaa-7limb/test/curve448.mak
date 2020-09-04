@@ -34,31 +34,32 @@
 #| NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,| 
 #| EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                          |
 #+-----------------------------------------------------------------------------+
-#
 
 INCDRS = -I../include/
 
-SRCFLS = ../source/curve448_const.s 		\
-	 ../source/curve448_mladder_base.s	\
-	 ../source/curve448_mladder.s		\
-	 ../source/gf_p4482241_mul.s 		\
-	 ../source/gf_p4482241_nsqr.s 		\
-	 ../source/gf_p4482241_makeunique.s	\
-	 ../source/gf_p4482241_pack.c		\
-	 ../source/gf_p4482241_inv.c 		\
-	 ../source/gf_p4482241_makeunique.c 	\
-	 ../source/curve448_scalarmult.c	\
+SRCFLS = ../source/curve448_const.s 			\
+	 ../source/curve448_mladder_base.s		\
+	 ../source/curve448_mladder_base_precompute.s	\
+	 ../source/curve448_mladder.s			\
+	 ../source/gf_p4482241_mul.s 			\
+	 ../source/gf_p4482241_nsqr.s 			\
+	 ../source/gf_p4482241_makeunique.s		\
+	 ../source/gf_p4482241_pack.c			\
+	 ../source/gf_p4482241_inv.c 			\
+	 ../source/gf_p4482241_makeunique.c 		\
+	 ../source/curve448_scalarmult.c		\
 	  ./curve448_test.c
          
-OBJFLS = ../source/curve448_const.o 		\
-	 ../source/curve448_mladder_base.o	\
-	 ../source/curve448_mladder.o		\
-	 ../source/gf_p4482241_mul.o 		\
-	 ../source/gf_p4482241_nsqr.o 		\
-	 ../source/gf_p4482241_makeunique.o	\
-	 ../source/gf_p4482241_pack.o		\
-	 ../source/gf_p4482241_inv.o 		\
-	 ../source/curve448_scalarmult.o	\
+OBJFLS = ../source/curve448_const.o 			\
+	 ../source/curve448_mladder_base.o		\
+	 ../source/curve448_mladder_base_precompute.o	\
+	 ../source/curve448_mladder.o			\
+	 ../source/gf_p4482241_mul.o 			\
+	 ../source/gf_p4482241_nsqr.o 			\
+	 ../source/gf_p4482241_makeunique.o		\
+	 ../source/gf_p4482241_pack.o			\
+	 ../source/gf_p4482241_inv.o 			\
+	 ../source/curve448_scalarmult.o		\
 	  ./curve448_test.o
 
 EXE    = curve448_test
