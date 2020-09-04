@@ -47,8 +47,10 @@
 
 extern void curve448_mladder(gfe_p4482241 *, const gfe_p4482241 *, const uchar8 *);
 extern void curve448_mladder_base(gfe_p4482241 *, const gfe_p4482241 *, const uchar8 *);
+extern void curve448_mladder_base_precompute(gfe_p4482241 *, const gfe_p4482241 *, const uchar8 *);
 
 int curve448_scalarmult(uchar8 *, const uchar8 *, const uchar8 *);
 int curve448_scalarmult_base(uchar8 *, const uchar8 *, const uchar8 *);
+int curve448_scalarmult_base_precompute(uchar8 *, const uchar8 *, const uchar8 *);
 
 #endif
