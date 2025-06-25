@@ -1,10 +1,11 @@
 /*
 +-----------------------------------------------------------------------------+
-| This code corresponds to the paper https://eprint.iacr.org/2019/1259.pdf by |
+| This code corresponds to the the paper "Reduction Modulo 2^{448}-2^{224}-1" |
+| authored by	      							      |
 | Kaushik Nath,  Indian Statistical Institute, Kolkata, India, and            |
 | Palash Sarkar, Indian Statistical Institute, Kolkata, India.	              |
 +-----------------------------------------------------------------------------+
-| Copyright (c) 2020, Kaushik Nath and Palash Sarkar.                         |
+| Copyright (c) 2020, Kaushik Nath.                                           |
 |                                                                             |
 | Permission to use this code is granted.                          	      |
 |                                                                             |
